@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header>
+    <nav id="navbar">
+      <ul class="navbar-items flexbox-col">
+        <li class="navbar-logo flexbox-left">
+          <a class="navbar-item-inner flexbox">
+            <img src="icons8-mint-96.png">
+          </a>
+          <span class="link-text" style="font-size: 1.5rem;">Lettuce Eat!</span>
+        </li>
+        <li class="navbar-item flexbox-left">
+          <a class="navbar-item-inner flexbox-left" href="AboutUs.html">
+            <div class="navbar-item-inner-icon-wrapper flexbox">
+              <img src="icons8-question-50.png" class="icon">
+            </div>
+            <span class="link-text">About Us</span>
+          </a>
+        </li>
+        <li class="navbar-item flexbox-left">
+          <a class="navbar-item-inner flexbox-left">
+            <div class="navbar-item-inner-icon-wrapper flexbox">
+              <img src="icons8-text-50.png" class="icon" id="Layer_1">
+            </div>
+            <span class="link-text" id="Comment" onClick="leaveComment()">Leave a Comment!</span>
+            <!-- on click popup input text box-->
+          </a>
+        </li>
+        <li class="navbar-item flexbox-left">
+          <a class="navbar-item-inner flexbox-left">
+            <div class="navbar-item-inner-icon-wrapper flexbox">
+              <img src="icons8-logout-50.png" class="icon">
+              <!-- icons by <a target="_blank" href="https://icons8.com">Icons8</a> -->
+            </div>
+            <span class="link-text">Log out</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    
+  </header>
+  <main>
+    <div id="main">
+         <section class="wrapper">
+        <h1 id="title">Not sure where to start?</h1>
+      </section>
+      <!--
+      <div class="colorTest">
+        <p id="color1">Color 1</p>
+        <p id="color2">Color 2</p>
+        <p id="color3">Color 3</p>
+        <p id="color4">Color 4</p>
+        <p id="color5">Color 5</p>
+      -->
+      </div>
+      <p>We'll help you get the most out of ingredients you already have!</p>
+      <div class="search">
+        <p>Let's get started. You can add up to 5 ingredients to the list below, and we'll find recipes you can make.</p>
+
+        <section class="modal hidden">
+          <div class="flex">
+            <img src="icons8-mint-lightPink.png" class="icon">
+            <h3>Something on your mind?</h3>
+            <a><button class="btn btn-close" style="background-color: #FF8E8F;" onClick="closeComment()">⨉</button></a>
+          </div>
+          <div>
+            <p>
+              Lettuce talk!
+            </p>
+          <input type="text" id="commentBox" placeholder="Leave a comment" />
+          <button class="btn">Submit</button>
+          </div>
+        </section>
+        <div class="overlay hidden"></div>
+        <input type="text" id="searchBar" onkeyup="searchIngredients()" placeholder="Search for ingredients" title="Type in a name">
+  
+        <!-- write script to load ingredients from API -->
+        <ul id="ingredientSearch">
+          <li><a href="#" onclick="addToList('Adele')">Adele</a></li>
+          <li><a href="#" onclick="addToList('Agnes')">Agnes</a></li>
+  
+          <li><a href="#" onclick="addToList('Billy')">Billy</a></li>
+          <li><a href="#" onclick="addToList('Bob')">Bob</a></li>
+  
+          <li><a href="#" onclick="addToList('Calvin')">Calvin</a></li>
+          <li><a href="#" onclick="addToList('Christina')">Christina</a></li>
+          <li><a href="#" onclick="addToList('Cindy')">Cindy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <ul id="ingredients">
+        
+      </ul>
+      <br><button id="search"><a href="#" onclick="searchRecipes()" style="text-decoration: none;">Search</a></button>
+    </div>
+
+    <section id="searchResults">
+      <!-- insert CSS carousel -->
+      
+    </section>
+  </main>
+ 
+
+
+  
+  <script src="script.js"></script>
+</body>
+
+</html>
+
+
+
+<!--
+
+original svg:
+<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 1438.88 1819.54">
+  <polygon points="925.79 318.48 830.56 0 183.51 1384.12 510.41 1178.46 925.79 318.48"/>
+  <polygon points="1438.88 1663.28 1126.35 948.08 111.98 1586.26 0 1819.54 1020.91 1250.57 1123.78 1471.02 783.64 1663.28 1438.88 1663.28"/>
+</svg>
+
+
+for searching ingredients
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+</style>
+</head>
+<body>
+
+<h2>My Phonebook</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<ul id="myUL">
+  <li><a href="#">Adele</a></li>
+  <li><a href="#">Agnes</a></li>
+
+  <li><a href="#">Billy</a></li>
+  <li><a href="#">Bob</a></li>
+
+  <li><a href="#">Calvin</a></li>
+  <li><a href="#">Christina</a></li>
+  <li><a href="#">Cindy</a></li>
+</ul>
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+-->
