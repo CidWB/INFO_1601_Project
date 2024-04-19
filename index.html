@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-
+  
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <title>Lettuce Eat</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -16,10 +16,11 @@
           <a class="navbar-item-inner flexbox">
             <img src="icons8-mint-96.png">
           </a>
+          <a href="/fetch.html" class="collection-item blue-text darken-3">User Login</a><br><br>
           <span class="link-text" style="font-size: 1.5rem;">Lettuce Eat!</span>
         </li>
         <li class="navbar-item flexbox-left">
-          <a class="navbar-item-inner flexbox-left" onClick="openDescription()">
+          <a class="navbar-item-inner flexbox-left" href="AboutUs.html">
             <div class="navbar-item-inner-icon-wrapper flexbox">
               <img src="icons8-question-50.png" class="icon">
             </div>
@@ -46,11 +47,10 @@
         </li>
       </ul>
     </nav>
-
   </header>
   <main>
     <div id="main">
-      <section class="wrapper">
+         <section class="wrapper">
         <h1 id="title">Not sure where to start?</h1>
       </section>
       <!--
@@ -61,76 +61,42 @@
         <p id="color4">Color 4</p>
         <p id="color5">Color 5</p>
       -->
-    </div>
-    <p>We'll help you get the most out of ingredients you already have!</p>
-    <div class="search">
-      <p>Let's get started. You can add up to 5 ingredients to the list below, and we'll find recipes you can make.</p>
+      </div>
+      <p>We'll help you get the most out of ingredients you already have!</p>
+      <div class="search">
+        <p>Let's get started. You can add up to 5 ingredients to the list below, and we'll find recipes you can make.</p>
 
-
-      <section class="modal hidden" id="descriptionModal">
-        <div>
-          <div class="icons">
+        <section class="modal hidden">
+          <div class="flex">
             <img src="icons8-mint-lightPink.png" class="icon">
-            <a><button class="btn btn-close" style="background-color: #FF8E8F;" onClick="closeDescription()">⨉</button></a>
-          </div> 
-          <h3>About Us</h3>
-          <p>
-            Welcome to Lettuce Eat! We're a team of passionate food enthusiasts who know the struggle of trying to find the right recipe for your next meal. Because of this, we aim to provide a simple and easy-to-use web application that allows users to easily search for recipes based on the ingredients they have in their fridge.
-          </p>
-        </div>
-      </section>
-      <div class="overlay hidden" id="descriptionOverlay"></div>
-      
-      <section class="modal hidden" id="commentModal">
-        <div>
-          <div class="icons">
-            <img src="icons8-mint-lightPink.png" class="icon">
+            <h3>Something on your mind?</h3>
             <a><button class="btn btn-close" style="background-color: #FF8E8F;" onClick="closeComment()">⨉</button></a>
-          </div> 
-          <h3>Something on your mind?</h3>
-          <p>
-            Lettuce talk!
-          </p>
-          <textarea id="commentBox" placeholder="Leave a comment" rows="1" onInput="auto_height(this)"></textarea><br>
-          <button class="btn" onClick="closeComment()">Submit</button>
-        </div>
-      </section>
-      <div class="overlay hidden" id="commentOverlay"></div>
-
-      
-      <input type="text" id="searchBar" onkeyup="searchIngredients()" placeholder="Search for ingredients"
-        title="Type in a name">
-
-      <!-- write script to load ingredients from API -->
-      <ul id="ingredientSearch">
-        <li><a href="#" onclick="addToList('Adele')">Adele</a></li>
-        <li><a href="#" onclick="addToList('Agnes')">Agnes</a></li>
-
-        <li><a href="#" onclick="addToList('Billy')">Billy</a></li>
-        <li><a href="#" onclick="addToList('Bob')">Bob</a></li>
-
-        <li><a href="#" onclick="addToList('Calvin')">Calvin</a></li>
-        <li><a href="#" onclick="addToList('Christina')">Christina</a></li>
-        <li><a href="#" onclick="addToList('Cindy')">Cindy</a></li>
-      </ul>
-    </div>
+          </div>
+          <div>
+            <p>
+              Lettuce talk!
+            </p>
+          <input type="text" id="commentBox" placeholder="Leave a comment" />
+          <button class="btn">Submit</button>
+          </div>
+        </section>
+        <div class="overlay hidden"></div>
+        <input type="text" id="searchBar" onkeyup="searchIngredients()" placeholder="Search for ingredients" title="Type in a name">
+        <!-- write script to load ingredients from API -->
+        <ul id="ingredientSearch">
+        </ul>
+      </div>
     </div>
     <div>
       <ul id="ingredients">
-
       </ul>
       <br><button id="search"><a href="#" onclick="searchRecipes()" style="text-decoration: none;">Search</a></button>
     </div>
 
     <section id="searchResults">
       <!-- insert CSS carousel -->
-
     </section>
   </main>
-
-
-
-
   <script src="script.js"></script>
 </body>
 
