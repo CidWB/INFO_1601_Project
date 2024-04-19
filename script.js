@@ -20,17 +20,35 @@ function displayListing(ingredients){
 }
 
 
-
-function leaveComment(){
-  let modal = document.querySelector(".modal");
-  let overlay = document.querySelector(".overlay");
+function openDescription() {
+  let modal = document.getElementById("descriptionModal");
+  let overlay = document.getElementById("descriptionOverlay");
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
 }
 
-function closeComment(){
-  let modal = document.querySelector(".modal");
-  let overlay = document.querySelector(".overlay");
+function closeDescription() {
+  let modal = document.getElementById("descriptionModal");
+  let overlay = document.getElementById("descriptionOverlay");
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+}
+
+function leaveComment() {
+  let modal = document.getElementById("commentModal");
+  let overlay = document.getElementById("commentOverlay");
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+}
+
+function auto_height(elem) {
+  elem.style.height = '1px';
+  elem.style.height = `${elem.scrollHeight}px`;
+}
+
+function closeComment() {
+  let modal = document.getElementById("commentModal");
+  let overlay = document.getElementById("commentOverlay");
   modal.classList.add("hidden");
   overlay.classList.add("hidden");
 }
