@@ -1,3 +1,26 @@
+async function loadListing(url){
+    try {
+        let response = await fetch(url);
+        let result = await response.json();
+        displayListing(result.meals); 
+    } catch(e) {
+        console.log(e);
+    }
+}
+
+loadListing("https://www.themealdb.com/api/json/v1/1/list.php?i=list");
+
+function displayListing(ingredients){
+    let result = document.querySelector('#ingredientSearch');
+    let html = '';
+    for(let record of ingredients){
+        html += `<li><a href="#${record.strIngredient}" onclick="addToList('${record.strIngredient}')">${record.strIngredient}</a></li>`;
+    }
+    result.innerHTML = html;
+}
+
+
+
 function leaveComment(){
   let modal = document.querySelector(".modal");
   let overlay = document.querySelector(".overlay");
