@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+
+        body {
+          background-image: url("images/vegetables_landscape.jpg");
+          max-width: 100vw;
+          max-height: 100vh;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+      
+        #content-wrapper {
+            width: 75%;
+            margin: 0 auto; 
+            padding: 20px; 
+            border: 2px solid #ccc; 
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
+
+        #food-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        /* Style for food image */
+        #food-image {
+            max-width: 100%;
+            height: 500px;
+            margin-bottom: 20px;
+            margin: 0 auto; 
+            width: 500px;
+            display: block;
+        }
+
+        /* Style for table */
+        table {
+            width: 100%; /* Adjust the width as needed */
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        /* Style for table header */
+        th {
+            background-color: #f2f2f2;
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        /* Style for table data */
+        td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+        }
+
+        /* Style for food description */
+        #food-description {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Details</title>
+
+
+</head>
+
+<body>
+    <div id="content-wrapper">
+        <div id="food-details-container">
+
+
+        </div>
+
+        <script>
+            // Retrieve mealId from URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const mealId = urlParams.get('mealId');
+
+            async function loadDetails(url) {
+                //makes a request to the ingredient listing API url
+                try {
+                    let response = await fetch(url);
+                    let result = await response.json();
+                    console.log(result.meals);
+                    displayDetails(result.meals);
+                } catch (e) {
+                    console.log(e);
+                }
+            }
+
+            loadDetails(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
+
+            function displayDetails(meal) {
+                let result = document.querySelector('#food-details-container');
+                let html = '';
+                for (record of meal) {
+                    html += `<h1 id="food-name">${record.strMeal}</h1>
+                       <img id="food-image" src="${record.strMealThumb}" alt="Food Image">
+                       <br>
+                       <table>
+                           <thead>
+                               <tr>
+                                   <th>Ingredient</th>
+                                   <th>Amount</th>
+                               </tr>
+                           </thead>
+                           <tbody id="result">
+                               ${generateIngredientsHTML(record)}
+                           </tbody>
+                       </table>
+                       <br>
+                       <p id="food-description">${record.strInstructions}</p>`;
+                }
+                result.innerHTML = html;
+            }
+
+            function generateIngredientsHTML(record) {
+                let html = '';
+                for (let i = 1; i <= 20; i++) {
+                    const ingredient = record[`strIngredient${i}`];
+                    const measure = record[`strMeasure${i}`];
+                    if (ingredient && measure) {
+                        html += `<tr>
+                              <td>${ingredient}</td>
+                              <td>${measure}</td>
+                           </tr>`;
+                    }
+                }
+                return html;
+            }
+
+
+        </script>
+    </div>
+</body>
+
+</html>

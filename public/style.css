@@ -1,13 +1,12 @@
 html {
   height: 200%;
-  max-width: 100%;
+  width: 100%;
   padding: 0;
   margin: 0;
 }
 
-body {
+body{
   margin: 0;
-  position: relative;
   color: black;
   background-color: white;
   font-size: 1rem;
@@ -22,9 +21,7 @@ body {
 }
 
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: inherit;
 }
 
@@ -33,7 +30,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .flexbox-left {
   display: flex;
   justify-content: flex-start;
@@ -47,12 +43,11 @@ body {
   width: var(--navbar-width);
   height: 100vh;
   position: fixed;
-  background-image: url("vegetables.jpg");
+  background-image: url("images/vegetables.jpg");
   transition: width .35s cubic-bezier(var(--transition-main), 1);
   overflow-y: auto;
   overflow-x: hidden;
 }
-
 #navbar:hover {
   width: 14em;
 }
@@ -74,21 +69,18 @@ body {
   align-content: space-around;
 }
 
-.icon {
+.icon{
   height: 3em;
   border-radius: 1em;
   display: inline-block;
 }
-
-.navbar-logo>.navbar-item-inner {
+.navbar-logo > .navbar-item-inner {
   width: calc(5rem - 8px);
 }
-
-.navbar-logo>.navbar-item-inner:hover {
+.navbar-logo > .navbar-item-inner:hover {
   background-color: transparent;
 }
-
-.navbar-logo>.navbar-item-inner>svg {
+.navbar-logo > .navbar-item-inner > svg {
   height: 2em;
   fill: hsl(var(--white));
 }
@@ -100,7 +92,6 @@ body {
   cursor: pointer;
   background-color: #4e1327;
 }
-
 .navbar-item-inner {
   padding: 1em 0;
   width: 100%;
@@ -110,11 +101,9 @@ body {
   text-decoration: none;
   transition: all .2s cubic-bezier(var(--transition-main), 1);
 }
-
 .navbar-item-inner:hover {
   background: #b32353;
 }
-
 .navbar-item-inner-icon-wrapper {
   width: calc(5rem - 1em - 8px);
   position: relative;
@@ -142,25 +131,23 @@ body {
 }
 
 /*leave a comment popup*/
-
-
 .modal {
   position: relative;
-  max-width: 25vw;
+  max-width: 50vw;
   align-self: center;
   justify-content: left;
   padding: 1em;
   padding-right: 4em;
   align-items: center;
   top: 1em;
-  margin-left: 3em;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 2em;
   color: #eee;
   font-weight: lighter;
-  
   background-color: #416D19;
   z-index: 3;
-  
+
 }
 
 .modal .icons{
@@ -206,7 +193,7 @@ textarea {
 }
 
 .btn-close {
-  transform: translate(207px, -72px);
+  transform: translate(34.2rem, -4.8rem);
   padding: 0.5rem 0.7rem;
   background: #eee;
   border-radius: 50%;
@@ -234,7 +221,7 @@ textarea {
   display: none;
 }
 
-main {
+main{
   margin-left: 7em;
 }
 
@@ -246,42 +233,42 @@ main {
   align-items: center;
 }
 
-img {
+img{
   height: 30px;
   display: block;
   margin: auto;
   align-self: center;
 }
 
-.wrapper {
+.wrapper{
   margin: 0;
-  padding: 10px;
+  padding:10px;
   width: 100vw;
   background-color: #FFC700;
   left: 0;
 }
 
-#color1 {
+#color1{
   background-color: #416D19;
 }
 
-#color2 {
+#color2{
   background-color: #FF8E8F;
 }
 
-#color3 {
+#color3{
   background-color: #FFC700;
 }
 
-#color4 {
+#color4{
   background-color: #FFF455;
 }
 
-#color5 {
+#color5{
   background-color: #b32353;
 }
 
-#searchBar {
+#searchBar{
   border-radius: 1em;
   background-color: #f1f1f1;
   border: none;
@@ -290,12 +277,12 @@ img {
   font-size: 1em;
 }
 
-#ingredientSearch {
+#ingredientSearch{
   background-color: #FFF455;
   height: 10em;
   margin-right: 1em;
   border-radius: 1em;
-  overflow-y: auto;
+  overflow-y:auto;
 }
 
 #ingredientSearch::-webkit-scrollbar {
@@ -314,7 +301,7 @@ img {
   background: #4e1327;
 }
 
-#ingredientSearch * {
+#ingredientSearch *{
   color: black;
   height: 2em;
   padding-top: 0.5em;
@@ -324,12 +311,12 @@ img {
   font-size: 1em;
 }
 
-#ingredients {
+#ingredients{
   margin-left: -2.5em;
-  amrgin-top: 1em;
+  margin-top: 1em;
 }
 
-#ingredients * {
+#ingredients *{
   color: black;
   background-color: #FF8E8F;
   padding: 0.5em;
@@ -341,7 +328,7 @@ img {
   text-align: center;
 }
 
-.remove {
+.remove{
   height: 1em;
   border-radius: 1em;
   display: inline-block;
@@ -357,9 +344,29 @@ img {
   background-color: #416D19;
   border: none;
 }
-
-#search>a {
+#search > a{
   color: white;
+}
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
 }
 
 /* aboutUs.html */
