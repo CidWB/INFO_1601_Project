@@ -14,7 +14,7 @@ loadListing("https://www.themealdb.com/api/json/v1/1/list.php?i=list");
 function displayListing(ingredients){
   //receives an array of category objects and displays it on the page in #ingredientSearch
   let result = document.querySelector('#ingredientSearch');
-  let html = '';
+  let html = ``;
   for(let record of ingredients){
       html += `<li><a href="#${record.strIngredient}" onclick="getMeals('${record.strIngredient}')">${record.strIngredient}</a></li>`;
   }
@@ -33,16 +33,34 @@ async function getMeals(name){
 
 function displayMeals(meals){
   let result = document.querySelector('#searchResults');
-  let html = '';
-  for(let record of meals){
-      html += `<div class="gallery">
-<a href="/food-details.html?mealId=${record.idMeal}" target="_blank">
-  <img src="${record.strMealThumb}" alt="${record.strMeal}" width="500" height="500">
-</a>
-<div class="desc">${record.strMeal}</div>
-</div>`;
+  let html = ``;
+  if(meals.length == 1){
+    html += 
+      `<li id="carousel__slide1" tabindex="0" class="carousel__slide">
+      <a href="/food-details.html?mealId=${record.idMeal}" target="_blank"><img src="${record.strMealThumb}" class="carouselImg" alt="${record.strMeal}"></a>
+      <h1>${record.strMeal}</h1>
+      <div class="carousel__snapper">
+        <a href="#carousel__slide1" class="carousel__prev"></a>
+        <a href="#carousel__slide1" class="carousel__next"></a>
+      </div>
+    </li>`;
+  }
+  else{
+    let count = 0;
+    for(let record of meals){
+      html += 
+        `<li id="carousel__slide${count}" tabindex="0" class="carousel__slide">
+        <a href="/food-details.html?mealId=${record.idMeal}" target="_blank"><img src="${record.strMealThumb}" class="carouselImg" alt="${record.strMeal}"></a>
+        <h1>${record.strMeal}</h1>
+        <div class="carousel__snapper">
+          <a href="#carousel__slide${count-1}" class="carousel__prev"></a>
+          <a href="#carousel__slide${count+1}" class="carousel__next"></a>
+        </div>
+      </li>`;
+      count++;
   }
   result.innerHTML = html;
+}
 }
 
 function searchIngredients() {

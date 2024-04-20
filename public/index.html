@@ -68,42 +68,42 @@
         <!-- Code for popups -->
         <section class="modal hidden" id="descriptionModal">
           <div>
-            <div class="icons">
+            <div>
               <img src="images/icons8-mint-lightPink.png" class="icon">
-              <a><button class="btn btn-close" style="background-color: #FF8E8F;" onClick="closeModal('description')">⨉</button></a>
             </div> 
             <h3>About Us</h3>
             <p>
-              Welcome to Lettuce Eat!, We're a team of passionate food enthusiasts who understand the struggle of trying to find the right recipe for your next meal. Because of this, we aim to provide a simple and easy-to-use web application that allows users to easily search for recipes based on the ingredients they have in their fridge that'll leave them wanton more.
+              Welcome to Lettuce Eat! We're a team of punny food enthusiasts who understand the struggle of trying to find the right recipe for your next meal. Because of this, we aim to provide a simple and easy-to-use web application that allows users to easily search for recipes based on the ingredients they have in their fridge that'll leave them wanton more.
             </p>
+            <span class="btn-close" onClick="closeModal('description')">Close</span>
           </div>
         </section>
         <div class="overlay hidden" id="descriptionOverlay"></div>
 
         <section class="modal hidden" id="commentModal">
           <div>
-            <div class="icons">
+            <div>
               <img src="images/icons8-mint-lightPink.png" class="icon">
-              <a><button class="btn btn-close" style="background-color: #FF8E8F;" onClick="closeModal('comment')">⨉</button></a>
             </div> 
             <h3>Water you have to say about us?</h3>
             <p>
               Lettuce talk!
             </p>
             <textarea id="commentBox" placeholder="Leave a comment" rows="1" onInput="auto_height(this)"></textarea><br>
-            <button class="btn" onClick="closeComment()">Submit</button>
+            <button class="btn" onClick="closeModal('comment')">Submit</button><br>
+            <span class="buttonClose" onClick="closeModal('comment')" >Close</span>
           </div>
         </section>
         <div class="overlay hidden" id="commentOverlay"></div>
 
         <section class="modal hidden" id="logoutModal">
           <div>
-            <div class="icons">
+            <div>
               <img src="images/icons8-mint-lightPink.png" class="icon">
-              <a><button class="btn btn-close" style="background-color: #FF8E8F;" onClick="closeModal('logout')">⨉</button></a>
             </div> 
             <h3>That's a Wrap! See you next thyme!</h3>
-            <a href="fetch.html"><button class="btn" onClick="closeComment()">Log out</button></a>
+            <a href="fetch.html"><button class="btn logout">Dessert Page</button></a><br>
+            <span class="buttonClose" onClick="closeModal('logout')">Go Back</span>
           </div>
         </section>
         <div class="overlay hidden" id="logoutOverlay"></div>
@@ -124,9 +124,10 @@
       </ul>
     </div>
 
-    <section id="searchResults">
-      <!-- insert CSS gallery (done) -->
-
+    <section class="carousel" aria-label="Gallery">
+      <ol class="carousel__viewport" id="searchResults">
+        
+      </ol>
     </section>
   </main>
 
